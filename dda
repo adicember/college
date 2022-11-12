@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<conio.h>
+
+#include<math.h>
+#include<graphics.h>
+int main()
+{
+	int x,y,x1, y1, x2, y2, dx,dy,step;
+	int gd= DETECT, gm,i=1;
+	initgraph(&gd, &gm, "C:\\TC\\bgi");
+	printf("enter the starting points points x1 and y1:");
+	scanf("%d%d",&x1, &y1);
+	printf("\n enter the ending points x2 and y2:");
+	scanf("%d%d",&x2,&y2);
+	setbkcolor(WHITE);
+	dx=abs(x2-x1);
+	dy=abs(y2-y1);
+
+	if(dx>=dy)
+	{
+		step=dx;
+	}
+	else
+	{
+		step=dy;
+	}
+	dx=dx/step;
+	dy=dy/step;
+	x=x1;
+	y=y1;
+
+	while(i<=step)
+	{
+		putpixel(x,y,5);
+		x=x+dx;
+		y=y+dy;
+		i=i+1;
+		delay(100);
+	}
+	closegraph();
+	return 0;
+	}
