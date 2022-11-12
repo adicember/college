@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+#include<math.h>
+#define PI 3.1428
+int main(){
+	int gd=DETECT,gm;
+	int x1,y1,x2,y2,x,y,xn,yn;
+	float theta,r11,r12,r21,r22,ang;
+	initgraph(&gd,&gm,"c:\\tc\\bgi");
+	printf("enter the coordinates of line:");
+	scanf("%d%d%d%d",&x1,&y1,&x2,&y2);
+	printf("enter the angle theta");
+	scanf("%f",&theta);
+	line(x1,y1,x2,y2);
+	ang= theta*PI/180;
+	r11=cos(ang);
+	r12=sin(ang);
+	r21=(-1*sin(ang));
+	r22=cos(ang);
+	x=floor((x2*r11)+(y2*r12));
+	y=floor((x2*r21)+(y2*r22));
+	xn=floor((x1*r11)+(y1*r12));
+	yn=floor((x1*r21)+(y1*r22));
+	printf("%d%d",x,y);
+	line(xn,yn,x,y);
+	delay(1000);
+	closegraph();
+	return 0;
+}
