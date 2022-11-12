@@ -1,16 +1,17 @@
-#include<stdio.h>
+#include<iostream>
 #include<conio.h>
 #include<math.h>
 #include<graphics.h>
+using namespace std;
 int main()
 {
 	int x, y, x1,y1,x2,y2,dx,dy,p;
 	int gd= DETECT, gm;
 	initgraph(&gd, &gm , "C:\\TC\\bgi");
-	printf("enter the starting point x1, y1: ");
-	scanf("%d%d",&x1,&y1);
-	printf("enter the ending point x2, y2: ");
-	scanf("%d%d",&x2,&y2);
+	cout<<"enter the starting point x1, y1: "<<endl;
+	cin>>x1>>y1;
+	cout<<"enter ending point x2,y2: "<<endl;
+	cin>>x2>>y2;
 	dx=x2-x1;
 	dy=y2-y1;
 
