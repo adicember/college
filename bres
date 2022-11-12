@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+#include<graphics.h>
+int main()
+{
+	int x, y, x1,y1,x2,y2,dx,dy,p;
+	int gd= DETECT, gm;
+	initgraph(&gd, &gm , "C:\\TC\\bgi");
+	printf("enter the starting point x1, y1: ");
+	scanf("%d%d",&x1,&y1);
+	printf("enter the ending point x2, y2: ");
+	scanf("%d%d",&x2,&y2);
+	dx=x2-x1;
+	dy=y2-y1;
+
+	x=x1;
+	y=y1;
+	p=2*dy-dx;
+	while(x<x2)
+	{
+		if(p>=0)
+		{
+			putpixel(x,y,7);
+			y=y+1;
+			p=p+2*dy-2*dx;
+		}
+		else{
+			putpixel(x,y,7);
+			x=x+1;
+			p=p+2*dy;
+		}
+		delay(100);
+		}
+		closegraph();
+		return 0;
+	     }
