@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+#include<math.h>
+int main()
+{
+	int gd=DETECT,gm;
+	int x1,y1,x2,y2,nx,ny,mx,my;
+	initgraph(&gd,&gm,"C:\\TC\\bgi");
+	printf("enter the line coordinates:");
+	scanf("%d%d%d%d",&x1,&y1,&x2,&y2);
+	line(getmaxx()/2,0, getmaxx() /2,  getmaxy());
+	line(0,getmaxy()/2,getmaxx(),getmaxy()/2);
+	setcolor(14);
+	line(x1,y1,x2,y2);
+	setcolor(4);
+	line(getmaxx()-x1,y1,getmaxx()-x2,y2);
+	setcolor(3);
+	line(x1,getmaxy()-y1,x2,getmaxy()-y2);
+	line(getmaxx()-x1,getmaxy()-y1,getmaxx()-x2,getmaxy()-y2);
+	delay(1000);
+	closegraph();
+	return 0;
+}
