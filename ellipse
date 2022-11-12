@@ -1,0 +1,64 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+int main()
+{
+	int gd=DETECT, gm;
+	float x, y,h, k,a,b,fx, fy,as,bs,d,temp1,temp2;
+	initgraph(&gd, &gm,"c:\\tc\\bgi");
+	printf("enter the center of ellipse:");
+	scanf("%f%f",&h,&k);
+	printf("enter the constants a and b:");
+	scanf("%f%f",&a,&b);
+	x=0;
+	y=b;
+	as=a*a;
+	bs=b*b;
+	fx=2*bs*x;
+	fy=2*as*y;
+	d=bs-(as*b)+(as*0.25);
+	do{
+		putpixel(h+x, k+y, 1);
+		putpixel(h-x,k-y ,1);
+		putpixel(h+x,k-y,1);
+		putpixel(h-x,k+y,1);
+		if(d<0)
+		{
+		d=d+fx+bs;
+		}
+		else
+		{
+			y=y-1;
+			d=d+fx+-fy+bs;
+			fy=fy-(2*as);
+		}
+		x=x+1;
+		fx=fx+(2*bs);
+		delay(100);
+		}
+		while(fx<fy);
+		temp1=(x+0.5)*(x+0.5);
+		temp2=(y-1)*(y-1);
+		d=bs*temp1+as*temp2-(as*bs);
+		do{
+		putpixel(h+x, k+y,1);
+		putpixel(h-x,k-y,1);
+		putpixel(h+x,k-y,1);
+		putpixel(h-x,k+y,1);
+		if(d>=0)
+		{
+		d=d-fy+as;
+		}
+		else
+		{
+			x=x+1;
+			d=d+fx-fy+as;
+			fx=fx+(2*bs);
+		}
+		y=y-1;
+		fy=fy-(2*as);
+		}
+		while(y>0);
+		closegraph();
+		return 0;
+		}
